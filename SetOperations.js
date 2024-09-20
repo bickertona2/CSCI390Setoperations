@@ -15,7 +15,7 @@ else if ((operation == "-u") || (operation == "--union")){
     var set1Split = set1.split(',');
     var set2Split = set2.split(',');
     var uset = [];
-    for (i = 0; i < str.length(set1Split); i++){
+    for (i = 0; i < set1Split.length(set1Split); i++){
         uset.push(set1Split[i]);
     } 
     while ((i < uset.length) && (set2Split[i] != undefined)){
