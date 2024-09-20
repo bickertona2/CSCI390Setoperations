@@ -39,33 +39,48 @@ else if ((operation == "-u") || (operation == "--union")){
     }
     console.log(uset);
 }
-// else if ((operation == "-u") || (operation == "--union")){
-//     var set1 = process.argv[3];
-//     var set2 = process.argv[4];
-//     var set1Split = set1.split(',');
-//     var set2Split = set2.split(',');
-//     var uset = [];
-//     for (i = 0; i < str.length(set1Split); i++){
-//         uset.push(set1Split[i]);
-//     } 
-//     while ((i < uset.length) && (set2Split[i] != undefined)){
-//         if (set2Split[i] != uset[i]){
-//             var newNum = 0;
-//             for (x = 0; x < uset.length; x++){
-//                 if (set2Split[i] != uset[x]){
-//                     newNum = set2Split[i];
-//                 }
-//                 else if(set2Split[i] == uset[x]){
-//                     newNum = 0;
-//                     break
-//                 }
-//             }
-//             if (newNum != 0){
-//                 uset.push(newNum);
-//                 newNum = 0;
-//             }
-//         }
-//         i++;
-//     }
-//     console.log(uset);
-// }
+else if ((operation == "-i") || (operation == "--intersection")){
+    var set1 = process.argv[3];
+    var set2 = process.argv[4];
+    var set1Split = set1.split(',');
+    var set2Split = set2.split(',');
+    var uset = [];
+    while (set1Split[i] != undefined){
+        while(set2Split[x] != undefined){
+            if (set1Split[i] == set2Split[x]){
+                uset.push(set1Split[i])
+            }
+            x++;
+        }
+        i++;
+    }
+    console.log(uset);
+}
+else if ((operation == "-d") || (operation == "--difference")){
+    var set1 = process.argv[3];
+    var set2 = process.argv[4];
+    var set1Split = set1.split(',');
+    var set2Split = set2.split(',');
+    var uset = [];
+    while (set1Split[i] != undefined){
+        var newNum = 0;
+        while(set2Split[x] != undefined){
+            if (set1Split[i] == set2Split[x]){
+                newNum = 0;
+                break;
+            }
+            else if (set1Split[i] != set2Split[x]){
+                newNum = set1Split[i];
+            }
+            x++;
+        }
+        if (newNum != 0){
+            uset.push(newNum);
+        }
+        i++;
+    }
+    console.log(uset);
+}
+else {
+    console.log("please use the -h or --help commands for assistance in using this program")
+}
