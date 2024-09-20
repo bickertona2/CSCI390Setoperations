@@ -52,6 +52,7 @@ else if ((operation == "-i") || (operation == "--intersection")){
     var i = 0;
     var x = 0;
     while (set1Split[i] != undefined){
+        x = 0;
         while(set2Split[x] != undefined){
             if (set1Split[i] == set2Split[x]){
                 uset.push(set1Split[i])
